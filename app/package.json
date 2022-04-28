@@ -1,0 +1,40 @@
+{
+    "devDependencies": {
+        "@babel/core": "^7.17.9",
+        "@babel/preset-react": "^7.16.7",
+        "@hotwired/stimulus": "^3.0.0",
+        "@symfony/stimulus-bridge": "^3.0.0",
+        "@symfony/webpack-encore": "^1.8.2",
+        "babel-loader": "^8.2.5",
+        "bootstrap": "3",
+        "copy-webpack-plugin": "^10.2.4",
+        "core-js": "^3.0.0",
+        "font-awesome": "4",
+        "jquery": "^3.6.0",
+        "node-sass": "^7.0.1",
+        "regenerator-runtime": "^0.13.2",
+        "sass": "^1.50.1",
+        "sass-loader": "^12.6.0",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "dependencies": {
+        "@material-ui/core": "^4.12.4",
+        "@material-ui/lab": "^4.0.0-alpha.61",
+        "@mui/lab": "^5.0.0-alpha.79",
+        "@mui/material": "^5.6.3",
+        "axios": "^0.27.1",
+        "promise-polyfill": "8.2.3",
+        "react-dom": "^18.0.0",
+        "sweetalert2": "^11.4.9",
+        "url": "^0.11.0",
+        "whatwg-fetch": "^3.6.2"
+    }
+}

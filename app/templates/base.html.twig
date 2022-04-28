@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}XBase{% endblock %}</title>
+
+    {% block stylesheets %}
+{#        <link href="{{ asset('build/layout.css') }}" rel="stylesheet" />#}
+
+        {{ encore_entry_link_tags('xbase_react') }}
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.0.5/es6-promise.auto.min.js"></script>
+{#    <script src="{{ asset('build/manifest.js') }}"></script>#}
+{#    <script src="{{ asset('build/layout.js') }}"></script>#}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">XBase</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Product</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Order
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+{#        <div class="navbar-collapse collapse">#}
+{#            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
+{#                <ul class="nav navbar-nav navbar-right">#}
+{#                    <li class="drop-down" data-toggle="tooltip" data-placement="left" title="Welcome back {{ app.user.firstName }}">#}
+{#                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">#}
+{#                            <span class="fa fa-user"></span>#}
+{#                            <strong>{{ app.user.username }}</strong>#}
+{#                            <span class="caret"></span>#}
+{#                        </a>#}
+{#                        <ul class="dropdown-menu">#}
+{#                            <li>#}
+{#                                <a href="{{ path('lift') }}">#}
+{#                                    Lift Stuff#}
+{#                                    <span class="mini-dumbbell"></span>#}
+{#                                </a>#}
+{#                            </li>#}
+{#                            <li>#}
+{#                                <a href="{{ path('fos_user_security_logout') }}">#}
+{#                                    <span class="fa fa-sign-out"></span>#}
+{#                                    Logout#}
+{#                                </a>#}
+{#                            </li>#}
+{#                        </ul>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            {% else %}#}
+{#                <ul class="nav navbar-nav navbar-right">#}
+{#                    <li>#}
+{#                        <a href="{{ path('fos_user_registration_register') }}">#}
+{#                            Register#}
+{#                        </a>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            {% endif %}#}
+{#        </div>#}
+        <!--/.navbar-collapse -->
+
+{% block hero %}{% endblock %}
+
+<div class="container main-content">
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="flash-{{ type }} alert alert-info">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {% block body %}{% endblock %}
+
+    <footer class="footer">
+        <hr />
+
+        <p>&copy; XBase {{ ''|date('Y') }}</p>
+    </footer>
+</div>
+<!-- /container -->
+{% block javascripts %}
+    {#    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>#}
+    {#    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>#}
+    {{ encore_entry_script_tags('xbase_react') }}
+{% endblock %}
+
+</body>
+</html>
