@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
- import Pagination from "@material-ui/lab/Pagination";
+import React, {useState, useEffect} from 'react';
+import Pagination from "@material-ui/lab/Pagination";
 import CustomersTable from './tables/CustomersTable';
 
 import EditCustomerForm from "./forms/EditCustomerForm";
@@ -15,9 +15,10 @@ const CustomerApp = () => {
 
     const [searchCustomer, setSearchCustomer] = useState("");
     const [page, setPage] = useState(1);
-    const [count, setCount] = useState(0);
-    const [pageSize, setPageSize] = useState(3);
-    const pageSizes = [3, 6, 9];
+    const [pagecount, setPagecount] = useState(1);
+    const [pageSize, setPageSize] = useState(20);
+    const pageSizes = [4, 8, 12];
+
     const onChangeSearchCustomer = (e) => {
         const searchCustomer = e.target.value;
         setSearchCustomer(searchCustomer);
@@ -25,26 +26,13 @@ const CustomerApp = () => {
     };
     const handlePageChange = (event, value) => {
         setPage(value);
-        retrieveCustomers();
+
     };
     const handlePageSizeChange = (event) => {
         setPageSize(event.target.value);
-        setPage(1);
+     //   setPage(1);
     };
 
-    const getRequestParams = (searchCustomer, page, pageSize) => {
-        let params = {};
-        if (searchCustomer) {
-            params["customer"] = searchCustomer;
-        }
-        if (page) {
-            params["page"] = page - 1;
-        }
-        if (pageSize) {
-            params["size"] = pageSize;
-        }
-        return params;
-    };
 
     const getRequestParamsString = (searchCustomer, page, pageSize) => {
         let paramsString = '?';
@@ -62,52 +50,6 @@ const CustomerApp = () => {
 
 
 
-    const retrieveCustomers = () => {
-        // const params = getRequestParams(searchCustomer, page, pageSize);
-        // let payload = { name: 'John Doe', occupation: 'gardener' };
-        // const searchParams = new URLSearchParams(payload);
-        // console.log(params);
-
-        const paramsString=getRequestParamsString(searchCustomer, page, pageSize);
-
-
-
-
-        // const requestOptions = {
-        //     method: "GET",
-        //     headers: { "Content-Type": "application/json" },
-        //      // body: JSON.stringify(params)
-        // };
-        try {
-            console.log(paramsString);
-            axios.get( 'http://localhost:8090/api/customers.jsonld'+paramsString)
-                .then(function (response) {
-                    setCount(Math.ceil(response.data['hydra:totalItems']/6));
-                    console.log({count});
-                    console.log(response);
-                    setCustomers(response.data['hydra:member']);
-                })
-        }
-        catch (err) {
-            console.warn("Something went wrong fetching the API...", err);
-        }
-        //
-        // fetch('http://localhost:8090/customers', requestOptions)
-        //
-        //     .then(response => response.data())
-        //     .console.log(response)
-        //     // .then(res => console.log(res))
-        //     // .then((response) => {
-        //     //     const { tutorials, totalPages } = response.data;
-        //     //     setTutorials(tutorials);
-        //     //     setCount(totalPages);
-        //     //     console.log(response => response.json());
-        //     // })
-        //     .catch((e) => {
-        //         console.log(e);
-        //     })
-    };
-
     // const [data, loading] = customerAsyncRequest(5);
 
     const [loading, setLoading] = useState(false);
@@ -115,18 +57,22 @@ const CustomerApp = () => {
 
         useEffect(() => {
             fetchCustomerList()
-        }, [])
+        }, [pagecount, page, pageSize])
+
+
 
     const fetchCustomerList = async () => {
+
+
         const paramsString=getRequestParamsString(searchCustomer, page, pageSize);
         try {
-            console.log(paramsString);
+           console.log(paramsString);
             setLoading(true);
-            // await axios.get( 'http://localhost:8090/api/customers?page=1&itemsPerPage=30')
-            await axios.get( 'http://localhost:8090/api/customers.jsonld'+paramsString)
+
+           await axios.get( 'http://localhost:8099/api/customers.jsonld'+paramsString)
+
             .then(function (response) {
-                setCount(Math.ceil(response.data['hydra:totalItems']/{pageSize}));
-                 console.log({count});
+                setPagecount(Math.ceil(response.data['hydra:totalItems']/pageSize));
                 setCustomers(response.data['hydra:member']);
                 setLoading(false);
             })
@@ -176,7 +122,7 @@ const CustomerApp = () => {
 
         setCustomers([...customers, customer]);
 
-        delete customer.id;
+     //   delete customer.id;
 
 
         const requestOptions = {
@@ -186,10 +132,12 @@ const CustomerApp = () => {
         };
 
         console.log('json'+JSON.stringify(customer));
-        fetch('http://localhost:8090/api/customers', requestOptions)
+        fetch('http://localhost:8099/api/customers', requestOptions)
             .then(response => response.json())
             .then(res => console.log(res));
 
+
+        fetchCustomerList();
 
         // console.log(customer);
         // axios.post('http://localhost:8090/api/customers', requestOptions)
@@ -234,7 +182,7 @@ const CustomerApp = () => {
 
         // updateCustomer(newUser.id, newUser);
         const id=newCustomer.id;
-        delete newCustomer.id;
+     //   delete newCustomer.id;
         const requestOptions = {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -254,7 +202,7 @@ const CustomerApp = () => {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Search by title"
+                        placeholder="Search by customerName"
                         value={searchCustomer}
                         onChange={onChangeSearchCustomer}
                     />
@@ -262,7 +210,7 @@ const CustomerApp = () => {
                     <button
                         className="btn btn-outline-secondary"
                         type="button"
-                        onClick={retrieveCustomers}
+                        onClick={fetchCustomerList}
                     >
                         Search
                     </button>
@@ -271,27 +219,7 @@ const CustomerApp = () => {
             </div>
             <div className="col-md-12">
                 <h4>Customers List</h4>
-                <div className="mt-3">
-                    {"Items per Page: "}
-                    <select  onChange={handlePageSizeChange} value={pageSize}>
-                        {pageSizes.map((size) => (
-                            <option key={size} value={size}>
-                                {size}
-                            </option>
-                        ))}
 
-                    </select>
-                    <Pagination
-                        className="my-3"
-                        count={count}
-                        page={page}
-                        siblingCount={1}
-                        boundaryCount={1}
-                        variant="outlined"
-                        shape="rounded"
-                        onChange={handlePageChange}
-                    />
-                </div>
                 <div className="row">
 
 
@@ -305,9 +233,32 @@ const CustomerApp = () => {
                                  deleteCustomer={deleteCustomer}
                                 editCustomer={editCustomer}
                             />
+
                         </div>
+
                     )}
 
+                </div>
+                <div className="mt-3">
+                    {/*{"Items per Page: "}*/}
+                    {/*<select  onChange={handlePageSizeChange} value={pageSize}>*/}
+                    {/*    {pageSizes.map((size) => (*/}
+                    {/*        <option key={size} value={size}>*/}
+                    {/*            {size}*/}
+                    {/*        </option>*/}
+                    {/*    ))}*/}
+
+                    {/*</select>*/}
+                    <Pagination
+                        className="my-3"
+                        count={pagecount}
+                        page={page}
+                        siblingCount={0}
+                        boundaryCount={1}
+                        variant="outlined"
+                        shape="rounded"
+                        onChange={handlePageChange}
+                    />
                 </div>
             </div>
             <div className="five columns">

@@ -33,6 +33,7 @@
         "axios": "^0.27.1",
         "promise-polyfill": "8.2.3",
         "react-dom": "^18.0.0",
+        "react-native": "^0.68.2",
         "sweetalert2": "^11.4.9",
         "url": "^0.11.0",
         "whatwg-fetch": "^3.6.2"

@@ -20,6 +20,27 @@ class DefaultController extends BaseController
         return $this->render('index.html.twig');
     }
 
+    #[Route('/product', name: 'product_list', methods: 'GET')]
+    public function productAction()
+    {
+//        return $this->redirectToRoute('home');
+
+//        $customer=new CustomerController(CustomerRepository);
+//        $data=$customer->index();
+        return $this->render('product.html.twig');
+    }
+    #[Route('/invoice', name: 'invoice_detail', methods: 'GET')]
+    public function invoiceAction()
+    {
+//        return $this->redirectToRoute('home');
+
+//        $customer=new CustomerController(CustomerRepository);
+//        $data=$customer->index();
+        return $this->render('invoice.html.twig');
+    }
+
+
+
 //    /**
 //     * @Route("/")
 //     */

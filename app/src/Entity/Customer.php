@@ -17,7 +17,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  */
 #[ORM\Entity(repositoryClass: CustomerRepository::class)]
-#[ApiResource(attributes: ["pagination_client_items_per_page" => true])]
+#[ApiResource(attributes: ["pagination_client_items_per_page" => true, "pagination_items_per_page" => 5 ])]
+
 class Customer
 {
     #[ORM\Id]

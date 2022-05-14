@@ -13,8 +13,8 @@ const el = <h2>Lift Stuff! <span>❤️❤❤❤</span></h2>;
 
 root.render(
     <div>
-       {/*<TestApp />*/}
-        <CustomerApp />
+       <TestApp />
+        {/*<CustomerApp />*/}
 
 
         {/*/>*/}

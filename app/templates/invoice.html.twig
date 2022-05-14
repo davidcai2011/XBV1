@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="row">
+  <h5>  Rechnung bearbeiten</h5>
+</div>
+    <div class="row">
+        <p class="text-secondary">Kunden- und Rechnungsinformationen</p>
+        <div class="table-responsive col-md-6">
+
+            <table >
+
+                <tbody>
+                <tr>
+                    <td class="col-md-1">Kunde *</td>
+                </tr>
+                <tr>
+                    <td class="col-md-1"><input type="text" placeholder="Kontakt suchen/erstellen"></td>
+                </tr>
+                <tr>
+                    <td class="col-md-1">Anschrift</td>
+                </tr>
+                <tr>
+                    <td class="col-md-1"><textarea> </textarea></td>
+                </tr>
+                <tr>
+                    <td class="col-md-1">Land *</td>
+                </tr>
+                <tr>
+                    <td><select name="land" id="land">
+                        <option value="Germany">Deutschland</option>
+                        <option value="Netherland">Netherland</option>
+                        <option value="Frankeich">Frankeich</option>
+                        <option value="Polen">Polen</option>
+                    </select></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-responsive col-md-6">
+            <table >
+
+                <tbody>
+                <tr>
+                    <td class="col-md-1">Betreff *</td>
+                    <td class="col-md-2">Rechnungsnummer *</td>
+
+                </tr>
+                <tr>
+                    <td class="col-md-1"><input type="text" placeholder="Rechnung Nr. RE-1000"></td>
+                    <td class="col-md-1"><input type="text" placeholder="RE-1000"></td>
+
+                </tr>
+                <tr>
+                    <td class="col-md-1">Rechnungsdatum *</td>
+                    <td class="col-md-2">Zahlungsdatum </td>
+
+                </tr>
+                <tr>
+                    <td class="col-md-1"><input type="date" ></td>
+                    <td class="col-md-1"><input type="date" ></td>
+
+                </tr>
+                <tr>
+                    <td class="col-md-1">Lieferdatum</td>
+                    <td class="col-md-2">Referenz / Bestellnummer</td>
+                </tr>
+                <tr>
+                    <td class="col-md-1"><input type="date" ></td>
+                    <td class="col-md-1"><input type="text" ></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr class="dotted">
+<div class="row">
+    <p class="text-secondary">Kopf-Text</p>
+</div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.11.0/dist/sweetalert2.min.css" />
+{% endblock %}
+
+{% block javascripts %}
+
+
+
+    <script>
+        {#window.REP_LOG_APP_PROPS = {{ repLogAppProps|json_encode|raw }};#}
+
+    </script>
+
+
+{% endblock %}
