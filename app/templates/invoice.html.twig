@@ -2,98 +2,239 @@
 
 {% block body %}
 
-<div class="row">
-  <h5>  Rechnung bearbeiten</h5>
-</div>
+<div class="container overflow-auto">
+
+    <div class="row" >
+        <div class="mb-3">
+            <table class="table">
+                <tr>
+                    <td><h5>Rechnungen</h5></td><td style="text-align: right; margin-right: 1em; ">
+                        <a href="/invoice_new"> <input class="text-white" type="button" value="Rechnung erstellen" style="background-color:cornflowerblue;" /></a></td>
+                </tr>
+
+            </table>
+        </div >
+    </div >
+
+
     <div class="row">
-        <p class="text-secondary">Kunden- und Rechnungsinformationen</p>
-        <div class="table-responsive col-md-6">
+            <div class="mb-3">
+                <table class="table table-striped table-responsive">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width: 10px">Id</th>
+                        <th scope="col">Nr.</th>
+                        <th scope="col">Kunde</th>
+                        <th scope="col"> Status</th>
+                        <th scope="col">Datum</th>
+                        <th scope="col">Betrag (Netto)</th>
+                        <th scope="col">Betrag (Brutto) </th>
+                        <th scope="col">Offener Betrag(Bruto) </th>
 
-            <table >
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row" style="width: 10px">1</th>
+                        <td> Re-1001</td>
+                        <td> A1 GmbH</td>
+                        <td> Erstellt</td>
+                        <td> 01.02.2022</td>
+                        <td style="text-align: right; margin-right: 1em;"> 100,00 EUR </td>
+                        <td style="text-align: right; margin-right: 1em;"> 119,00 EUR</td>
+                        <td style="text-align: right; margin-right: 1em;"> 80,00 EUR</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 10px">2</th>
+                        <td> Re-1002</td>
+                        <td> A2 GmbH</td>
+                        <td> Bezahlt</td>
+                        <td> 15.01.2022</td>
+                        <td style="text-align: right; margin-right: 1em;"> 200,00 EUR </td>
+                        <td style="text-align: right; margin-right: 1em;"> 238,00 EUR</td>
+                        <td style="text-align: right; margin-right: 1em;"> 0,00 EUR</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 10px">3</th>
+                        <td> Re-1003</td>
+                        <td> A3 GmbH</td>
+                        <td> Bezahlt</td>
+                        <td> 15.02.2022</td>
+                        <td style="text-align: right; margin-right: 1em;"> 300,00 EUR </td>
+                        <td style="text-align: right; margin-right: 1em;"> 357,00 EUR</td>
+                        <td style="text-align: right; margin-right: 1em;"> 0,00 EUR</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 10px">4</th>
+                        <td> Re-1001</td>
+                        <td> A1 GmbH</td>
+                        <td> Erstellt</td>
+                        <td> 01.02.2022</td>
+                        <td style="text-align: right; margin-right: 1em;"> 100,00 EUR </td>
+                        <td style="text-align: right; margin-right: 1em;"> 119,00 EUR</td>
+                        <td style="text-align: right; margin-right: 1em;"> 80,00 EUR</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 10px">5</th>
+                        <td> Re-1001</td>
+                        <td> A1 GmbH</td>
+                        <td> Erstellt</td>
+                        <td> 01.02.2022</td>
+                        <td style="text-align: right; margin-right: 1em;"> 100,00 EUR </td>
+                        <td style="text-align: right; margin-right: 1em;"> 119,00 EUR</td>
+                        <td style="text-align: right; margin-right: 1em;"> 80,00 EUR</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 10px">6</th>
+                        <td> Re-1001</td>
+                        <td> A1 GmbH</td>
+                        <td> Erstellt</td>
+                        <td> 01.02.2022</td>
+                        <td style="text-align: right; margin-right: 1em;"> 100,00 EUR </td>
+                        <td style="text-align: right; margin-right: 1em;"> 119,00 EUR</td>
+                        <td style="text-align: right; margin-right: 1em;"> 80,00 EUR</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 10px">6</th>
+                        <td> Re-1001</td>
+                        <td> A1 GmbH</td>
+                        <td> Erstellt</td>
+                        <td> 01.02.2022</td>
+                        <td style="text-align: right; margin-right: 1em;"> 100,00 EUR </td>
+                        <td style="text-align: right; margin-right: 1em;"> 119,00 EUR</td>
+                        <td style="text-align: right; margin-right: 1em;"> 80,00 EUR</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 10px">7</th>
+                        <td> Re-1001</td>
+                        <td> A1 GmbH</td>
+                        <td> Erstellt</td>
+                        <td> 01.02.2022</td>
+                        <td style="text-align: right; margin-right: 1em;"> 100,00 EUR </td>
+                        <td style="text-align: right; margin-right: 1em;"> 119,00 EUR</td>
+                        <td style="text-align: right; margin-right: 1em;"> 80,00 EUR</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 10px">8</th>
+                        <td> Re-1001</td>
+                        <td> A1 GmbH</td>
+                        <td> Erstellt</td>
+                        <td> 01.02.2022</td>
+                        <td style="text-align: right; margin-right: 1em;"> 100,00 EUR </td>
+                        <td style="text-align: right; margin-right: 1em;"> 119,00 EUR</td>
+                        <td style="text-align: right; margin-right: 1em;"> 80,00 EUR</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 10px">9</th>
+                        <td> Re-1001</td>
+                        <td> A1 GmbH</td>
+                        <td> Erstellt</td>
+                        <td> 01.02.2022</td>
+                        <td style="text-align: right; margin-right: 1em;"> 100,00 EUR </td>
+                        <td style="text-align: right; margin-right: 1em;"> 119,00 EUR</td>
+                        <td style="text-align: right; margin-right: 1em;"> 80,00 EUR</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 10px">10</th>
+                        <td> Re-1001</td>
+                        <td> A1 GmbH</td>
+                        <td> Erstellt</td>
+                        <td> 01.02.2022</td>
+                        <td style="text-align: right; margin-right: 1em;"> 100,00 EUR </td>
+                        <td style="text-align: right; margin-right: 1em;"> 119,00 EUR</td>
+                        <td style="text-align: right; margin-right: 1em;"> 80,00 EUR</td>
+                    </tr>
+                </table>
+            </div >
 
-                <tbody>
-                <tr>
-                    <td class="col-md-1">Kunde *</td>
-                </tr>
-                <tr>
-                    <td class="col-md-1"><input type="text" placeholder="Kontakt suchen/erstellen"></td>
-                </tr>
-                <tr>
-                    <td class="col-md-1">Anschrift</td>
-                </tr>
-                <tr>
-                    <td class="col-md-1"><textarea> </textarea></td>
-                </tr>
-                <tr>
-                    <td class="col-md-1">Land *</td>
-                </tr>
-                <tr>
-                    <td><select name="land" id="land">
-                        <option value="Germany">Deutschland</option>
-                        <option value="Netherland">Netherland</option>
-                        <option value="Frankeich">Frankeich</option>
-                        <option value="Polen">Polen</option>
-                    </select></td>
-                </tr>
-                </tbody>
-            </table>
+
+           <div class="footer-copyright text-center py-3" style="position: fixed; bottom:30px; width: 100%; line-height: 2; background: white;">
+
+               <table>
+                   <tr>
+                       <td>
+                            <div class="center" style="height: 10px;">
+                               <select s >
+                                   <option value="10">10</option>
+                                   <option value="10">25</option>
+                                   <option value="10">50</option>
+                               </select>
+                            </div>
+                       </td>
+                       <td>
+                       </td>
+                       <td>
+                           <div class="center" style="height: 10px;">
+                           <nav >
+                               <ul class="pagination" style="height: 5px;" >
+                                   <li class="page-item">
+                                       <a class="page-link" href="#" aria-label="Previous">
+                                           <span aria-hidden="true">&laquo;</span>
+
+                                       </a>
+                                   </li>
+                                   <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                   <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                   <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                   <li class="page-item">
+                                       <a class="page-link" href="#" aria-label="Next">
+                                           <span aria-hidden="true">&raquo;</span>
+
+                                       </a>
+                                   </li>
+
+
+
+                               </ul>
+                           </nav>
+                           </div>
+                       </td>
+                       <td>
+                       </td>
+                       <td>
+                           <div class="center" style="height: 10px;">
+                           <span class="sr-only">Zeigt 1 - 10 von 580 Eintraegen</span>
+                           </div>
+                       </td>
+                   </tr>
+               </table>
+
+
+           </div>
+
+
+
+
         </div>
-        <div class="table-responsive col-md-6">
-            <table >
 
-                <tbody>
-                <tr>
-                    <td class="col-md-1">Betreff *</td>
-                    <td class="col-md-2">Rechnungsnummer *</td>
-
-                </tr>
-                <tr>
-                    <td class="col-md-1"><input type="text" placeholder="Rechnung Nr. RE-1000"></td>
-                    <td class="col-md-1"><input type="text" placeholder="RE-1000"></td>
-
-                </tr>
-                <tr>
-                    <td class="col-md-1">Rechnungsdatum *</td>
-                    <td class="col-md-2">Zahlungsdatum </td>
-
-                </tr>
-                <tr>
-                    <td class="col-md-1"><input type="date" ></td>
-                    <td class="col-md-1"><input type="date" ></td>
-
-                </tr>
-                <tr>
-                    <td class="col-md-1">Lieferdatum</td>
-                    <td class="col-md-2">Referenz / Bestellnummer</td>
-                </tr>
-                <tr>
-                    <td class="col-md-1"><input type="date" ></td>
-                    <td class="col-md-1"><input type="text" ></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <hr class="dotted">
-<div class="row">
-    <p class="text-secondary">Kopf-Text</p>
-</div>
-{% endblock %}
-
-{% block stylesheets %}
-    {{ parent() }}
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.11.0/dist/sweetalert2.min.css" />
-{% endblock %}
-
-{% block javascripts %}
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 
+        {% endblock %}
 
-    <script>
-        {#window.REP_LOG_APP_PROPS = {{ repLogAppProps|json_encode|raw }};#}
+        {% block stylesheets %}
 
-    </script>
+            {{ parent() }}
+<style>
+            .pagination input,
+            .pagination button {
+            margin-left: -1px;
+            color: #337ab7;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 6px 12px;
+            }
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.11.0/dist/sweetalert2.min.css" />
+        {% endblock %}
+
+        {% block javascripts %}
+
+            <script>
+                {#window.REP_LOG_APP_PROPS = {{ repLogAppProps|json_encode|raw }};#}
+
+            </script>
 
 
-{% endblock %}
+        {% endblock %}

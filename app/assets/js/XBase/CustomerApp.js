@@ -221,62 +221,64 @@ const CustomerApp = () => {
                 <h4>Customers List</h4>
 
                 <div className="row">
-
-
                     {loading || !customers ? (
                         <p>Loading...</p>
                     ) : (
-                        <div className="seven columns">
 
-                            <CustomersTable
-                                customers={customers}
-                                 deleteCustomer={deleteCustomer}
-                                editCustomer={editCustomer}
-                            />
+                        <div className="table-responsive col-md-12">
 
+                            <div className="seven columns">
+
+                                <CustomersTable
+                                    customers={customers}
+                                    deleteCustomer={deleteCustomer}
+                                    editCustomer={editCustomer}
+                                />
+
+                            </div>
+                            <div className="mt-3">
+                                {/*{"Items per Page: "}*/}
+                                {/*<select  onChange={handlePageSizeChange} value={pageSize}>*/}
+                                {/*    {pageSizes.map((size) => (*/}
+                                {/*        <option key={size} value={size}>*/}
+                                {/*            {size}*/}
+                                {/*        </option>*/}
+                                {/*    ))}*/}
+
+                                {/*</select>*/}
+                                <Pagination
+                                    className="my-3"
+                                    count={pagecount}
+                                    page={page}
+                                    siblingCount={0}
+                                    boundaryCount={1}
+                                    variant="outlined"
+                                    shape="rounded"
+                                    onChange={handlePageChange}
+                                />
+                            </div>
+
+                            <div className="five columns">
+                                {editing ? (
+                                    <div>
+                                        <h2>Edit customer</h2>
+                                        <EditCustomerForm
+                                            currentCustomer={currentCustomer}
+                                            setEditing={setEditing}
+                                            updateCustomer={updateCustomer}
+                                        />
+                                    </div>
+                                ) : (
+                                    <div>
+                                        <h2>Add customer</h2>
+                                        <AddCustomerForm addCustomer={addCustomer} />
+                                    </div>
+                                )}
+                            </div>
                         </div>
 
                     )}
-
                 </div>
-                <div className="mt-3">
-                    {/*{"Items per Page: "}*/}
-                    {/*<select  onChange={handlePageSizeChange} value={pageSize}>*/}
-                    {/*    {pageSizes.map((size) => (*/}
-                    {/*        <option key={size} value={size}>*/}
-                    {/*            {size}*/}
-                    {/*        </option>*/}
-                    {/*    ))}*/}
-
-                    {/*</select>*/}
-                    <Pagination
-                        className="my-3"
-                        count={pagecount}
-                        page={page}
-                        siblingCount={0}
-                        boundaryCount={1}
-                        variant="outlined"
-                        shape="rounded"
-                        onChange={handlePageChange}
-                    />
-                </div>
-            </div>
-            <div className="five columns">
-                {editing ? (
-                    <div>
-                        <h2>Edit customer</h2>
-                        <EditCustomerForm
-                            currentCustomer={currentCustomer}
-                            setEditing={setEditing}
-                            updateCustomer={updateCustomer}
-                        />
-                    </div>
-                ) : (
-                    <div>
-                        <h2>Add customer</h2>
-                        <AddCustomerForm addCustomer={addCustomer} />
-                    </div>
-                )}
             </div>
         </div>
     )

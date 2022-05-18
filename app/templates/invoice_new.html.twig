@@ -1,0 +1,321 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container overflow-auto">
+
+    <div class="row" >
+        <div class="mb-3">
+            <table class="table">
+                <tr>
+                    <td><h5>Neue Rechnung</h5></td><td style="text-align: right; margin-right: 1em; "><input class="text-white" type="button" value="Speichern" style="background-color:cornflowerblue;" /></td>
+                </tr>
+
+            </table>
+        </div >
+    </div >
+{#    <div class="search-box">#}
+{#        <input type="text" autocomplete="off" placeholder="Search country..." />#}
+{#        <div class="result"></div>#}
+{#    </div>#}
+
+    <div class="row">
+        <h6 class="text-white p-2 " style="background-color:cornflowerblue; width: 400px "><small>Kunden- und Rechnungsinformationen</small></h6>
+    </div >
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="mb-3 search-box">
+                <label class="form-label" for="Kunde">Kunde *</label>
+
+                <div class="mb-3 search-box" >
+                    <input class="form-control" type="text" autocomplete="off" id="Kunde" placeholder="Kontakt suchen..." />
+                    <div class="result"></div>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="mb-3">
+                <label class="form-label" for="Adress">Anschrift</label>
+                <textarea class="form-control" id="Adress" type="text" placeholder="" style="height: 5rem;" ></textarea>
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="Country">Land *</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Deutschland</option>
+                    <option value="Frankreich">Frankreich</option>
+                    <option value="Niederland">Niederland</option>
+                    <option value="Polen">Polen</option>
+                </select>
+
+            </div>
+        </div>
+        <div class="col-xl-3">
+            <div class="mb-3">
+                <label class="form-label" for="Rechnungsnummer">Rechnungsnummer *</label>
+                <input class="form-control" id="Rechnungsnummer" type="text" placeholder="Rechnung Nr. RE-1000" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="Rechnungsdatum">Rechnungsdatum *</label>
+                <input class="form-control" id="Rechnungsdatum" type="date" placeholder="" />
+
+            </div>
+        </div>
+        <div class="col-xl-3">
+            <div class="mb-3">
+                <label class="form-label" for="Bestellnummer">Bestellnummer</label>
+                <input class="form-control" id="Bestellnummer" type="text" placeholder="" />
+
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="Rechnungsdatum">Lieferdatum *</label>
+                <input class="form-control" id="Lieferdatum" type="date" placeholder="" />
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <h6 class="text-white p-2 " style="background-color:cornflowerblue; width: 400px "><small>Kopf-Text</small></h6>
+        </div >
+        <div class="row">
+            <div class="mb-3">
+                <div id="summernote"></div>
+
+            </div >
+            <div class="row">
+                <h6 class="text-white p-2 " style="background-color:cornflowerblue; width: 400px "><small>Position</small></h6>
+
+            </div >
+            <div class="mb-3">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width: 10px">#</th>
+                        <th scope="col">Position</th>
+                        <th scope="col">Menge</th>
+                        <th scope="col">Einzelpreis (Netto)</th>
+                        <th scope="col">USt. %</th>
+                        <th scope="col">Rabatt %</th>
+                        <th scope="col">Betrag (Netto) </th>
+                        <th scope="col"> action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row" style="width: 10px">1</th>
+                        <td> <input class="form-control" id="Produkt" type="text" placeholder="Produkt Suchen" size="10" /></td>
+                        <td> <input class="form-control" id="Menge" type="number" placeholder="1,00" size="1" /></td>
+                        <td> <input class="form-control" id="Einzelpreis" type="text" placeholder="0,00 EUR" size="2" /></td>
+                        <td> <input class="form-control" id="MWST" type="number" placeholder="19" size="1" /></td>
+                        <td> <input class="form-control" id="Rabatt" type="number" placeholder="0" size="1" /></td>
+                        <td> <span>0,00 EUR</span></td>
+                        <td><i class="bi bi-trash"></i> </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 10px">2</th>
+                        <td> <input class="form-control" id="Produkt" type="text" placeholder="Produkt Suchen" size="10" /></td>
+                        <td> <input class="form-control" id="Menge" type="number" placeholder="1,00" size="2" /></td>
+                        <td> <input class="form-control" id="Einzelpreis" type="text" placeholder="0,00 EUR" size="2" /></td>
+                        <td> <input class="form-control" id="MWST" type="number" placeholder="19" size="1" /></td>
+                        <td> <input class="form-control" id="Rabatt" type="number" placeholder="0" size="1" /></td>
+                        <td> <span>0,00 EUR</span></td>
+                        <td><i class="bi bi-trash"></i> </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 10px">3</th>
+                        <td> <input class="form-control" id="Produkt" type="text" placeholder="Produkt Suchen" size="10" /></td>
+                        <td> <input class="form-control" id="Menge" type="number" placeholder="1,00" size="2" /></td>
+                        <td> <input class="form-control" id="Einzelpreis" type="text" placeholder="0,00 EUR" size="2" /></td>
+                        <td> <input class="form-control" id="MWST" type="number" placeholder="19" size="1" /></td>
+                        <td> <input class="form-control" id="Rabatt" type="number" placeholder="0" size="1" /></td>
+                        <td> <span>0,00 EUR</span></td>
+                        <td><i class="bi bi-trash"></i> </td>
+                    </tr>
+                    <tr>
+                        <td>  <input type="button" value="+" style="width: 20px" /></td>
+                    </tr>
+
+                </table>
+            </div >
+            <div class="row">
+                <h6 class="text-white p-2 " style="background-color:cornflowerblue; width: 400px "><small>Fuss-Text</small></h6>
+            </div >
+            <div class="row ">
+                <div class="mb-3">
+                    <div id="summernote1"></div>
+
+
+                </div >
+            </div >
+            <div class="row">
+                <h6 class="text-white p-2 " style="background-color:cornflowerblue; width: 400px "><small>Gesamt</small></h6>
+            </div >
+            <div class="row ">
+                <div class="mb-3">
+                    <table class="table">
+                        <tr>
+                            <td>Gesamtsumme Netto (inkl. Rabatte / Aufschlaege) </td><td style="text-align: right; margin-right: 1em;">0,00 EUR</td>
+                        </tr>
+                        <tr>
+                            <td>Umsatzsteuer 19%</td><td style="text-align: right; margin-right: 1em;">0,00 EUR</td>
+                        </tr>
+                        <tr>
+                            <td><b>Gesamt</b></td><td style="text-align: right; margin-right: 1em;">0,00 EUR</td>
+                        </tr>
+                    </table>
+                </div >
+            </div >
+        </div>
+
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+
+
+
+        {% endblock %}
+
+        {% block stylesheets %}
+            {{ parent() }}
+            <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.11.0/dist/sweetalert2.min.css" />
+            <style>
+                body{
+                    font-family: Arail, sans-serif;
+                }
+                /* Formatting search box */
+                .search-box{
+                    width: 100%;
+                    position: relative;
+                    display: inline-block;
+                    font-size: 14px;
+                }
+                .search-box input[type="text"]{
+                    height: 32px;
+                    padding: 5px 10px;
+                    border: 1px solid #CCCCCC;
+                    font-size: 14px;
+                }
+                .result{
+                    position: absolute;
+                    z-index: 999;
+                    top: 100%;
+                    left: 0;
+                }
+                .search-box input[type="text"], .result{
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+                /* Formatting result items */
+                .result p{
+                    margin: 0;
+                    padding: 7px 10px;
+                    border: 1px solid #CCCCCC;
+                    border-top: none;
+                    cursor: pointer;
+                    background: white;
+                }
+                .result p:hover{
+                    background: #f2f2f2;
+                }
+            </style>
+        {% endblock %}
+
+        {% block javascripts %}
+
+            <script>
+                $(document).ready(function(){
+
+
+                    $('.search-box input[type="text"]').on("keyup input", function(){
+                        /* Get input value on change */
+                        var inputVal = $(this).val();
+
+                        var resultDropdown = $(this).siblings(".result");
+
+                        if(inputVal.length){
+                            var paramsString = '?';
+                            paramsString+='customerName=' + inputVal;
+                            $.ajax({
+                                url: "http://localhost:8099/api/customers.json" + paramsString,
+                                contentType: "application/json",
+                                dataType: 'json',
+                                success: function(result){
+
+                                    var strHtml;
+                                    for(var i = 0; i < result.length; i++) {
+                                        var obj = result[i];
+                                         strHtml+='<p>'+result[i].customerName +'<br>Knd.-Nr.'+ result[i].id +'</p>';
+                                    }
+                                    strHtml+='<p style="background-color:cornflowerblue;"><a href="/customer">Neue Kontakt erstellen</a></p>';
+                                    resultDropdown.html(strHtml);
+                                }
+                            })
+
+                            // $.get("http://localhost:8099/api/customers.jsonld", {term: inputVal}).done(function(data){
+                            //     alert(data);
+                            //     resultDropdown.html(data);
+                            // });
+
+
+                        } else{
+                            resultDropdown.empty();
+                        }
+                    });
+
+                    // Set search input value on click of result item
+                    $(document).on("click", ".result p", function(){
+                        var strCustomerName=$(this).text();
+                        var pos=strCustomerName.search("Knd.");
+                        strCustomerName=strCustomerName.substring(0, pos);
+
+                        $(this).parents(".search-box").find('input[type="text"]').val(strCustomerName);
+                        $(this).parent(".result").empty();
+                    });
+                });
+
+
+            </script>
+
+
+
+                    <script src="summernote-bs5.js"></script>
+
+               <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+            <script>
+                $('#summernote').summernote({
+                    placeholder: 'Sehr geehrte Damen und Herren,',
+                    tabsize: 2,
+                    height: 120,
+                    toolbar: [
+                        ['style', ['style']],
+                        ['font', ['bold', 'underline', 'clear']],
+                        ['color', ['color']],
+                        ['para', ['ul', 'ol', 'paragraph']],
+                        ['table', ['table']],
+                        ['insert', ['link', 'picture', 'video']],
+                        ['view', ['fullscreen', 'codeview', 'help']]
+                    ]
+                });
+            </script>
+            <script>
+                $('#summernote1').summernote({
+                    placeholder: 'Bitte Ueberweisen Sie den Rechnungsbetrag',
+                    tabsize: 2,
+                    height: 120,
+                    toolbar: [
+                        ['style', ['style']],
+                        ['font', ['bold', 'underline', 'clear']],
+                        ['color', ['color']],
+                        ['para', ['ul', 'ol', 'paragraph']],
+                        ['table', ['table']],
+                        ['insert', ['link', 'picture', 'video']],
+                        ['view', ['fullscreen', 'codeview', 'help']]
+                    ]
+                });
+            </script>
+        {% endblock %}

@@ -19,6 +19,15 @@ class DefaultController extends BaseController
 //        $data=$customer->index();
         return $this->render('index.html.twig');
     }
+    #[Route('/customer', name: 'customer_list', methods: 'GET')]
+    public function customerAction()
+    {
+//        return $this->redirectToRoute('home');
+
+//        $customer=new CustomerController(CustomerRepository);
+//        $data=$customer->index();
+        return $this->render('index.html.twig');
+    }
 
     #[Route('/product', name: 'product_list', methods: 'GET')]
     public function productAction()
@@ -37,6 +46,15 @@ class DefaultController extends BaseController
 //        $customer=new CustomerController(CustomerRepository);
 //        $data=$customer->index();
         return $this->render('invoice.html.twig');
+    }
+    #[Route('/invoice_new', name: 'invoice_new', methods: 'GET')]
+    public function invoiceNewAction()
+    {
+//        return $this->redirectToRoute('home');
+
+//        $customer=new CustomerController(CustomerRepository);
+//        $data=$customer->index();
+        return $this->render('invoice_new.html.twig');
     }
 
 

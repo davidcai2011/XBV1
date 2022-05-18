@@ -2,7 +2,7 @@ import React from 'react';
 
 const CustomersTable = (props) => {
     return (
-        <table class="table table-striped table-responsive">
+        <table class="table table-striped table-responsive" >
             <thead class="table-success">
             <tr>
                 <th>ID</th>
