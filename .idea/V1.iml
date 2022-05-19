@@ -107,6 +107,12 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/fig/link-util" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/nelmio/cors-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/willdurand/negotiation" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/fakerphp/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/zenstruck/foundry" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/zenstruck/callback" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/zenstruck/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/doctrine/data-fixtures" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/doctrine/doctrine-fixtures-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
